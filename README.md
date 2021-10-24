@@ -21,7 +21,7 @@ Specifications
 
 | Specification          | Value                  |
 | ---------------------- |:-----------------------|
-| Algo                   | YespowerCPMK           |
+| Algo                   | Yespower               |
 | Premine                | 0                      |
 | Block Spacing          | 60 seconds             |
 | Max Supply             | 21,000,000 (21 Million)|
