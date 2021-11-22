@@ -4,11 +4,17 @@ $(package)_download_path=https://github.com/theuni/cctools-port/archive
 $(package)_file_name=$($(package)_version).tar.gz
 $(package)_sha256_hash=a09c9ba4684670a0375e42d9d67e7f12c1f62581a27f28f7c825d6d7032ccc6a
 $(package)_build_subdir=cctools
-$(package)_clang_version=3.7.1
-$(package)_clang_download_path=http://llvm.org/releases/$($(package)_clang_version)
-$(package)_clang_download_file=clang+llvm-$($(package)_clang_version)-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-$(package)_clang_file_name=clang-llvm-$($(package)_clang_version)-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-$(package)_clang_sha256_hash=99b28a6b48e793705228a390471991386daa33a9717cd9ca007fcdde69608fd9
+$(package)_version=10.0.1
+$(package)_download_path=https://github.com/llvm/llvm-project/releases/download/llvmorg-$($(package)_version)
+ifneq (,$(findstring aarch64,$(BUILD)))
+$(package)_download_file=clang+llvm-$($(package)_version)-aarch64-linux-gnu.tar.xz
+$(package)_file_name=clang+llvm-$($(package)_version)-aarch64-linux-gnu.tar.xz
+$(package)_sha256_hash=90dc69a4758ca15cd0ffa45d07fbf5bf4309d47d2c7745a9f0735ecffde9c31f
+else
+$(package)_download_file=clang+llvm-$($(package)_version)-x86_64-linux-gnu-ubuntu-16.04.tar.xz
+$(package)_file_name=clang+llvm-$($(package)_version)-x86_64-linux-gnu-ubuntu-16.04.tar.xz
+$(package)_sha256_hash=48b83ef827ac2c213d5b64f5ad7ed082c8bcb712b46644e0dc5045c6f462c231
+endif
 $(package)_extra_sources=$($(package)_clang_file_name)
 
 define $(package)_fetch_cmds
